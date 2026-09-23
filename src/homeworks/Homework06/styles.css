@@ -1,0 +1,11 @@
+.homework06-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 280px);
+  justify-content: center;
+  align-content: center;
+  gap: 25px;
+  padding: 40px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: rgb(235, 232, 240);
+}
