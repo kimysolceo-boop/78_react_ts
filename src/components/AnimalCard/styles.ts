@@ -25,3 +25,5 @@ export const AnimalCardImage = styled.img`
   object-fit: cover;
   border-radius: 8px;
 `;
+
+export const Species = styled.div``;

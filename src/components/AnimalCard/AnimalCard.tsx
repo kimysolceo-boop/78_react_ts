@@ -1,6 +1,7 @@
 import { AnimalCardWrapper,
 AnimalCardTitle,
-AnimalCardImage } from "./styles";
+AnimalCardImage, 
+Species} from "./styles";
 import type { AnimalCardProps } from "./types";
 
 function AnimalCard({ 
@@ -8,12 +9,12 @@ function AnimalCard({
     imgSrc,
  }: AnimalCardProps) {
   return (
-    <AnimalCardWrapper>
-      <AnimalCardTitle>{name}</AnimalCardTitle>
-      <div>{species}</div>
-      <AnimalCardImage src={imgSrc} />
-    </AnimalCardWrapper>
-  );
+  <AnimalCardWrapper>
+    <AnimalCardImage src={imgSrc} alt={name} />
+    <AnimalCardTitle>{name}</AnimalCardTitle>
+    <Species>{species}</Species>
+  </AnimalCardWrapper>
+);
 }
 
 export default AnimalCard;

@@ -1,4 +1,5 @@
-.counter-with-state-wrapper {
+import styled from "@emotion/styled";
+export const CounterWithStateWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -8,12 +9,12 @@
   background-color: rgb(233, 182, 182);
   border: 2px solid rgb(46, 13, 81);
   border-radius: 18px;
-}
-.button-wrapper {
+`;
+export const ButtonWrapper = styled.div`
   width: 100px;
-}
-.result {
+`;
+export const Result = styled.div`
   font-size: 28px;
   font-weight: bold;
   color: rgb(46, 13, 81);
-}
+`;
