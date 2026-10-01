@@ -1,13 +1,14 @@
 import { useState, type ChangeEvent } from "react";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
+import ToDoList from "../../components/ToDoList/ToDoList";
+
 import {
   PageWrapper,
   Lesson09Wrapper,
   Title,
-  TodoList,
-  TodoItem,
 } from "./styles";
+
 
 function Lesson09() {
   const [inputValue, setInputValue] = useState("");
@@ -27,6 +28,13 @@ function Lesson09() {
     setInputValue("");
   };
 
+  const deleteTodo = (todoIndex: number) => {
+  const updatedTodos = [...todos];
+  updatedTodos.splice(todoIndex, 1);
+  setTodos(updatedTodos);
+  };
+
+
   return (
   <PageWrapper>
     <Lesson09Wrapper>
@@ -42,11 +50,7 @@ function Lesson09() {
 
       <Button name="Add" onClick={addTodo} />
 
-      <TodoList>
-        {todos.map((todo, index) => (
-          <TodoItem key={index}>{todo}</TodoItem>
-        ))}
-      </TodoList>
+      <ToDoList todos={todos} deleteTodo={deleteTodo} />
     </Lesson09Wrapper>
   </PageWrapper>
 );
