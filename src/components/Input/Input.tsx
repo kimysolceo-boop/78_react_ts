@@ -1,4 +1,4 @@
-import { InputComponent, InputWrapper, Label } from "./styles";
+import { ErrorMessage, InputComponent, InputWrapper, Label } from "./styles";
 import type { InputProps } from "./types";
 function Input({
   name,
@@ -8,6 +8,7 @@ function Input({
   value,
   onChange,
   label,
+  error
 }: InputProps) {
   return (
     <InputWrapper>
@@ -20,6 +21,7 @@ function Input({
         value={value}
         onChange={onChange}
       />
+      <ErrorMessage>{error}</ErrorMessage>
     </InputWrapper>
   );
 }
