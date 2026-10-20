@@ -16,6 +16,8 @@ import Homework08 from "./homeworks/Homework08/Homework08";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Users from "./pages/Users/Users";
 import AdminUser from "./pages/Users/components/AdminUser/AdminUser";
+import Lesson15 from "./pages/Lesson15/Lesson15";
+import Home from "./pages/Home/Home";
 function App() {
   return (
     // <></> - fragment. Он позволяет задать обертку (выступает в качестве родителя), чтобы
@@ -29,7 +31,7 @@ function App() {
         <Routes>
           {/* Route - компонент, который содержит путь и страницу, которая отображается
           по этому пути */}
-          <Route path="/" element="Home" />
+          <Route path="/" element={<Home />} />
           <Route path="/lesson-5" element={<Lesson05 />} />
           <Route path="/lesson-6" element={<Lesson06 />} />
           <Route path="/lesson-7" element={<Lesson07 />} />
@@ -42,8 +44,10 @@ function App() {
           <Route path="/homework-10" element={<Homework10 />} />
           {/* Страница PageNotFound будет показываться, если ни один из маршрутов}
 {/* Страница PageNotFound будет показываться, если ни один из маршрутов
-          выше не будет найден */}
-                    {/* Lesson 14. React Router */}
+          above не будет найден */}
+          {/* Lesson 14. React Router */}
+          {/* Lesson 15. Context */}
+          <Route path="/lesson-15" element={<Lesson15 />} />
           <Route path="/users/admin" element={<AdminUser />} />
 
           <Route path="/users" element={<Users />} />
