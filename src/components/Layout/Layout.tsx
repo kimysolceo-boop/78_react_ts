@@ -11,7 +11,13 @@ import {
   StyledNavLink,
 } from "./styles";
 
-import type { InputContextType, LayoutProps } from "./types";
+import type {
+  InputContextType,
+  LayoutProps,
+  UserContextType,
+} from "./types";
+
+import type { UserProfile } from "../../pages/Profile/types";
 
 import LogoImg from "../../assets/avatar.jpg";
 import { ButtonWrapper } from "../CounterWithState/styles";
@@ -22,8 +28,15 @@ export const InputContext = createContext<InputContextType>({
   onDataChange: () => {},
 });
 
+export const UserContext = createContext<UserContextType>({
+  user: null,
+  setUser: () => {},
+});
+
+
 function Layout({ children }: LayoutProps) {
   const [inputResult, setInputResult] = useState<string>("");
+  const [user, setUser] = useState<UserProfile | null>(null);
 
   const navigate = useNavigate();
 
@@ -38,11 +51,17 @@ function Layout({ children }: LayoutProps) {
         onDataChange: setInputResult,
       }}
     >
-      <LayoutComponent>
-        <Header>
-          <Link to="/">
-            <Logo src={LogoImg} />
-          </Link>
+      <UserContext.Provider
+        value={{
+          user,
+          setUser,
+        }}
+      >
+        <LayoutComponent>
+          <Header>
+            <Link to="/">
+              <Logo src={LogoImg} />
+            </Link>
 
           <ButtonWrapper>
             <Button name="<---" onClick={onBack} />
@@ -165,6 +184,25 @@ function Layout({ children }: LayoutProps) {
             >
               Lesson15
             </StyledNavLink>
+
+            <StyledNavLink
+              to="/get-profile"
+              style={({ isActive }) => ({
+                textDecoration: isActive ? "underline" : "none",
+            })}
+            >
+            Get Profile
+            </StyledNavLink>
+
+            <StyledNavLink
+              to="/profile"
+              style={({ isActive }) => ({
+                textDecoration: isActive ? "underline" : "none",
+            })}
+            >
+           Profile
+           </StyledNavLink>
+
           </NavContainer>
         </Header>
 
@@ -172,6 +210,7 @@ function Layout({ children }: LayoutProps) {
 
         <Footer />
       </LayoutComponent>
+    </UserContext.Provider>
     </InputContext.Provider>
   );
 }
